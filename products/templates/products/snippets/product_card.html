@@ -1,0 +1,12 @@
+                <div class="single-products-catagory clearfix">
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="{{ product.productimage_set.all.first.image.url }}" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>${{ product.price }} </p>
+                            <h4>{{ product.title }}</h4>
+                            <button type="button" class="btn btn-light">Comprar</button>
+                        </div>
+                    </a>
+                </div>

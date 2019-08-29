@@ -1,0 +1,29 @@
+
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      {% comment %} <img src="img_avatar2.png" alt="Avatar" class="avatar"> {% endcomment %}
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Usuario/Correo</b></label>
+      <input type="text" placeholder="Escriba correo" name="uname" required>
+
+      <label for="psw"><b>Contraseña</b></label>
+      <input type="password" placeholder="Escriba contraseña" name="psw" required>
+        
+      <button type="submit">Entrar</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Recuerdame
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+      <span class="psw">Olvidó <a href="#">contraseña?</a></span>
+    </div>
+  </form>
+</div>
