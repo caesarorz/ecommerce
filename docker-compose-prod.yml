@@ -38,7 +38,7 @@ services:
     volumes:
       - ./ecommerce/.dbdata:/var/lib/mysql
     ports:
-      - 33069:3306
+      - 3306:3306
 
   proxy:
     build:
@@ -47,7 +47,7 @@ services:
     depends_on:
       - ecommerce_api
     ports:
-      - 8004:8000
+      - 80:8000
     volumes:
       - static-data:/vol/static
 
