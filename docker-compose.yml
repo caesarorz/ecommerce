@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+
+  ecommerce_api:
+    container_name: djec_api
+    build:
+      context: .
+      dockerfile: ./ecommerce/Dockerfile
+    volumes:
+      - ./ecommerce/.:/app
+    ports:
+      - 8000:8000
+    command: >
+      sh -c "
+            python manage.py wait_db &&
+            python manage.py makemigrations user &&
+            python manage.py makemigrations products &&
+            python manage.py makemigrations orders &&
+            python manage.py makemigrations core &&
+            python manage.py migrate &&
+            python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DEBUG=1
+    depends_on:
+      - ecommerce_db
+
+  ecommerce_db:
+    container_name: djec_db
+    image: mysql:5.7.22
+    restart: always
+    environment:
+      MYSQL_DATABASE: django_admin
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./ecommerce/.dbdata:/var/lib/mysql
+    ports:
+      - 33069:3306
