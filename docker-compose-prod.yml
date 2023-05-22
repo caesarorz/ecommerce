@@ -31,7 +31,7 @@ services:
     image: mysql:5.7.22
     restart: always
     environment:
-      - MYSQL_DATABASE=django_admin
+      - MYSQL_DATABASE=${db_name}
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASS}
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
