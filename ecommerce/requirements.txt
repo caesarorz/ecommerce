@@ -25,3 +25,4 @@ mysqlclient==2.1.1
 django-filter==22.1
 django-mysql==4.8.0
 uwsgi>=2.0.19<2.1
+psycopg2>=2.9.3,<2.10

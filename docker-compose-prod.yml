@@ -28,17 +28,14 @@ services:
 
   ecommerce_db:
     container_name: ec_db
-    image: mysql:5.7.22
+    image: postgres:13-alpine
     restart: always
     environment:
-      - MYSQL_DATABASE=${db_name}
-      - MYSQL_USER=${DB_USER}
-      - MYSQL_PASSWORD=${DB_PASS}
-      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
     volumes:
-      - ./ecommerce/.dbdata:/var/lib/mysql
-    ports:
-      - 33066:3306
+      - postgres-data:/var/lib/postgresql/data
 
   proxy:
     container_name: ec_proxy
@@ -54,4 +51,5 @@ services:
 
 volumes:
   static-data:
+  postgres-data:
 
