@@ -8,7 +8,7 @@ services:
       dockerfile: ./ecommerce/Dockerfile
     restart: always
     environment:
-      - DB_HOST=db
+      - DB_HOST=ecommerce_db
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
@@ -45,7 +45,7 @@ services:
     depends_on:
       - ecommerce_api
     ports:
-      - 8004:8000
+      - 80:8000
     volumes:
       - static-data:/vol/static
 
