@@ -23,7 +23,7 @@ RUN python -m venv /py && \
 
 
 COPY ./ecommerce /app/
-EXPOSE 8000
+
 ENV PATH="/scripts:/py/bin:$PATH"
 
 USER django-user
