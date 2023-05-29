@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'drf_spectacular',
     "corsheaders",
     'storages',
     'products',
@@ -53,9 +54,15 @@ INSTALLED_APPS = [
 ]
 
 # Token JWT: https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html
+# open api drf_spectacular.openapi: https://drf-spectacular.readthedocs.io/en/latest/index.html
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        # 'nohtml_renderer.NoHTMLFormBrowsableAPIRenderer'
     )
 }
 
@@ -175,14 +182,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# STATIC_URL = '/static/'
-# MEDIA_URL = '/images/'
-
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static'
-# ]
-
-# MEDIA_ROOT = 'static/img'
 
 STATIC_URL = '/static/static/'
 MEDIA_URL = '/static/media/'
