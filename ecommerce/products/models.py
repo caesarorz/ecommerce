@@ -14,9 +14,8 @@ class Product(models.Model):
     num_reviews = models.IntegerField(default=0, null=True, blank=True)
     price = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
     countin_stock = models.IntegerField(null=True, blank=True, default=0)
-    created_at = models.DateTimeField(auto_now_add=True, auto_now=False) # a created at field
+    created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
     modified = models.DateTimeField(auto_now=True)
-    # _id = models.AutoField(primary_key=True, editable=False)
 
     def __str__(self):
         return f'id: {self.id}. name: {self.name}'
@@ -29,7 +28,6 @@ class Review(models.Model):
     rating = models.IntegerField(default=0, null=True, blank=True)
     comment =  models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    # _id = models.AutoField(primary_key=True, editable=False)
 
     def __str__(self):
         return str(self.rating)

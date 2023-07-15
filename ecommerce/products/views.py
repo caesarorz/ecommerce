@@ -12,6 +12,14 @@ from .models import Product, Review
 # # TODO split
 @api_view(['GET'])
 def list_products(requests):
+    """_summary_
+
+    Args:
+        requests (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     query = requests.query_params.get('search')
 
     if query == None:
@@ -33,7 +41,16 @@ def list_products(requests):
 
 @api_view(['GET'])
 def get_product(requests, pk):
+    """Get a product by id
 
+    Args:
+        requests (HttpRequest object): Http request object with data
+        pk (int): Product's id
+
+    Returns:
+        Http Response Template: Response object containing product information, such as:
+        name, description, id, reviews, etc.
+    """
     product = Product.objects.get(id=pk)
     product_serialized = ProductSerializer(product, many=False)
     return Response(product_serialized.data)
@@ -42,6 +59,17 @@ def get_product(requests, pk):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def create_product_reviews(request, pk):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+        pk (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+
+
     product = Product.objects.get(id=pk)
     user = request.user
     data = request.data
@@ -86,4 +114,6 @@ class ListProducts(APIView):
         products = Product.objects.all()
         product_serialized = ProductSerializer(products, many=True)
         return Response(product_serialized.data)
+
+
 

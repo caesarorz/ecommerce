@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY =
 SECRET_KEY = os.environ.get('SECRET_KEY', 'secret')
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = bool(int(os.environ.get('DJANGO_DEBUG', 1)))
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
@@ -65,6 +66,15 @@ REST_FRAMEWORK = {
         # 'nohtml_renderer.NoHTMLFormBrowsableAPIRenderer'
     )
 }
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Ecommerce API',
+    'DESCRIPTION': 'Ecommerce official API documentation.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False
+}
+
+
 
 from datetime import timedelta
 
