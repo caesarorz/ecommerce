@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
+from datetime import datetime
 from django.contrib.auth.models import User
 from .serializers import OrderSerializer
 from products.models import Product
@@ -12,9 +13,7 @@ from .models import Order, OrderItem, ShippingAddress
 
 from django.contrib.auth.hashers import make_password
 
-#TODO
-# user count instead of len(orderItems)
-#split this function: high coupling and low cohesion?
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_order_items(request):
@@ -78,8 +77,6 @@ def get_order_by_id(request, pk):
         return Response({'detail': 'Order does not exists'}, status=status.HTTP_400_BAD_REQUEST)
 
 
-from datetime import datetime
-
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def order_paid(request, pk):
@@ -87,7 +84,6 @@ def order_paid(request, pk):
     order.is_paid = True
     order.paid_at = datetime.now()
     order.save()
-
     return Response({'pay status':f'order {order.id} paid'})
 
 
