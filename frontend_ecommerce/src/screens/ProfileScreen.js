@@ -153,6 +153,7 @@ export default function ProfileScreen() {
                                         </tr>
                                 ))}
                             </tbody>
+
                         </Table>
                     )
                 }
