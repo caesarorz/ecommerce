@@ -20,7 +20,7 @@ services:
       - AWS_SECRET_KEY=${AWS_SECRET_KEY}
       - AWS_BUCKET_NAME=${AWS_BUCKET_NAME}
     volumes:
-      - static-data:/vol/app
+      - static-data:/vol/web
     depends_on:
       - ecommerce_db
 
@@ -33,7 +33,7 @@ services:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
     ports:
-      - 5335:5432
+      - 5432:5432
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
@@ -45,7 +45,7 @@ services:
     depends_on:
       - ecommerce_api
     ports:
-      - 8001:8000
+      - 80:8000
     volumes:
       - static-data:/vol/static
 
