@@ -10,8 +10,6 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 
-COPY ./manager/requirements.txt /app/requirements.txt
-COPY ./manager/scripts /scripts
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
     apk add --update --no-cache postgresql-client jpeg-dev && \
