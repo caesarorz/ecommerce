@@ -9,8 +9,8 @@ import './index.css';
 import './bootstrap.min.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// axios.defaults.baseURL = 'http://ec2-18-118-51-156.us-east-2.compute.amazonaws.com/';
-axios.defaults.baseURL = 'http://localhost:8001/';
+// axios.defaults.baseURL = 'http://127.0.0.1:80/';
+axios.defaults.baseURL = 'http://ec2-3-142-237-57.us-east-2.compute.amazonaws.com/';
 axios.defaults.withCredentials = true;
 
 

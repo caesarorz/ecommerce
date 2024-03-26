@@ -7,7 +7,7 @@ function Footer() {
           <Container>
               <Row>
                   <Col className="text-center py-3">
-                    eCommerce - 2023
+                    eCommerce - 2024
                   </Col>
               </Row>
           </Container>
